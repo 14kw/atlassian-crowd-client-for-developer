@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  h1= '権限の確認'
+
+  h2= '全ユーザーの利用権限一覧'
+  table.aui
+    thead
+       tr
+         th username
+         th displayname
+         th active
+         th jira
+         th confl
+         th stash
+    tbody
+      each val in all
+        tr
+          td
+            a(href='../users/view/#{val["username"]}') #{val["username"]}
+          td #{val["displayname"]}
+          - if(crowd.indexOf(val["username"]) >= 0) {
+            td ✓
+          - } else {
+            td &nbsp;
+          - }
+          - if(jira.indexOf(val["username"]) >= 0) {
+            td ○
+          - } else {
+            td &nbsp;
+          - }
+          - if(confluence.indexOf(val["username"]) >= 0) {
+            td ○
+          - } else {
+            td &nbsp;
+          - }
+          - if(stash.indexOf(val["username"]) >= 0) {
+            td ○
+          - } else {
+            td &nbsp;
+          - }

@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h1= 'グループ情報'
+  - var active
+
+  h2= group["groupname"]
+  table.aui
+    tbody
+      each val, key in group
+        tr
+          if key == 'active'
+            - active = val;
+          th #{key}
+          td #{val}
+
+  h2= 'グループ内メンバー'
+  if editperm
+    div.aui-group
+      a(href='../useredit/' + group["groupname"])
+        button.aui-button グループ内メンバーの編集
+  table.aui
+    tbody
+      each val in userlist
+        tr
+          td 
+            a(href='../../users/view/#{val}') #{val}
+

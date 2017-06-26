@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+  h1= 'ユーザーの新規追加'
+  if(error)
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p #{error}
+
+  if(rest)
+    div.aui-message.aui-message-info
+      p.title
+       strong information
+      p Crowd：残り #{rest} ライセンス
+
+  if(limit)
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p Crowdライセンス上限に達しました。不要なユーザーを無効化してください。
+  else
+    form.aui(method='post', action='/users/create')
+      div.field-group
+        label(for='username') username
+          span.aui-icon.icon-required
+        input#username.text.medium-field(type='text', name="username" value="")
+        div.description ex.dev000 or view000
+      div.field-group
+        label(for='firstname') firstname
+          span.aui-icon.icon-required
+        input#firstname.text.medium-field(type='text', name="firstname" value="")
+      div.field-group
+        label(for='lastname') lastname
+          span.aui-icon.icon-required
+        input#lastname.text.medium-field(type='text', name="lastname" value="")
+      div.field-group
+        label(for='email') email
+          span.aui-icon.icon-required
+        input#email.text.medium-field(type='email', name="email" value="")
+      div.buttons-container
+        div.buttons
+          input#comment-save-button.button.submit(type='submit', value='追加')

@@ -1,0 +1,23 @@
+extends ./layout_login
+
+block content
+  h1= 'Crowd Client Login'
+  if(error)
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p #{error}
+
+  div.aui-group
+    form.aui(method='post', action='/auth/login')
+      div.field-group
+        label(for='username') username
+          span.aui-icon.icon-required
+        input#username.text.medium-field(type='text', name="username" value="")
+      div.field-group
+        label(for='password') password
+          span.aui-icon.icon-required
+        input#password.text.medium-field(type='password', name="password" value="")
+      div.buttons-container
+        div.buttons
+          input#comment-save-button.button.submit(type='submit', value='ログイン')

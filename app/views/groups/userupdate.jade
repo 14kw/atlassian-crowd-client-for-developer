@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  h1= 'edit group userlist'
+  if(error)
+    p #{error}
+
+  p #{groupname}
+  p #{userlist}
+
+  form(method='post', action='/groups/userupdate/#{groupname}')
+    input(type='text', name='userlist' value='')
+    input(type='submit', value='add')

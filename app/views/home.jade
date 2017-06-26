@@ -1,0 +1,31 @@
+extends ./layout
+
+block content
+  h1= 'Atlassian Crowd Client for developer'
+
+  h2= 'Crowd Client for developerとは'
+  div.aui-group
+    p Atlassian製品のユーザー管理を行うためのページです。
+    p システム管理者しかできなかった、ユーザー・グループ追加、グループへのユーザー追加などを利用者でもできるようにすることを目的として作られています。
+    p Crowdでユーザーを一元管理していることを前提としています。
+
+  h2= 'Crowd Client for developerでできること'
+  ul
+    li ユーザーの新規追加
+    li ユーザーの検索
+    li ユーザー情報の変更
+    li ユーザーの有効化・無効化
+    li グループの新規追加
+    li グループの検索
+    li グループへユーザーを追加・削除
+    li 各ツール権限の確認
+    li 各ツール権限の追加・削除
+  p ユーザーやグループの削除は危険なので許可していません。
+
+  h2= '制限事項'
+  p いくつかconfigに分離できておらず固定値のものがあります。
+  ul
+    li Crowd Directoryは1つの場合限定
+    li JIRA/Confluence/Stashのツール権限はデフォルトのグループ名を使用
+    li 権限分けのためのユーザーID命名規則（admin000, dev000, view000）
+  

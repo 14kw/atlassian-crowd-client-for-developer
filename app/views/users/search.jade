@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h1= 'ユーザーの検索'
+  if !query
+   - query = '';
+
+  form#searchuser.aui(name='seachuser' method='post', action='/users/search')
+    div.field-group
+      label(for='query') search word
+        span.aui-icon.icon-required
+      input#query.text.medium-field(type='text', name="query" value="#{query}")
+      div.description usernameかemailで検索できます
+    div.field-group
+      label(for='active') active
+      select#active.select.medium-field(name="active")
+        option(value="all") all
+        option(value="true" selected) active
+        option(value="false") inactive
+
+    div.buttons-container
+      div.buttons
+        input#comment-save-button.button.submit(type='submit', value='検索')
+
+  if users
+    ul
+     each val in users
+       li 
+         a(href="/users/view/#{val}") #{val}

@@ -1,0 +1,30 @@
+{
+  "name": "atlassian-crowd-client-for-developer",
+  "version": "0.0.1",
+  "author": "14kw",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/14kw/atlassian-crowd-client-for-developer"
+  },
+  "bugs": {
+    "url": "https://github.com/14kw/atlassian-crowd-client-for-developer/issues"
+  },
+  "homepage": "https://github.com/14kw/atlassian-crowd-client-for-developer",
+  "keywords": [
+    "atlassian",
+    "crowd"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-session": "^1.15.3",
+    "jade": "~1.11.0",
+    "log4js": "^0.6.36"
+  }
+}

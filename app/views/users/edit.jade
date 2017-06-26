@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  h1= 'ユーザー情報の変更'
+  if(error)
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p #{error}
+
+  form.aui(method='post', action='/users/update/#{user["username"]}')
+    input#active(type='hidden', name='active' value="#{user['active']}")
+    div.field-group
+      label(for='username') username
+        span.aui-icon.icon-required
+      input#username.text.medium-field(type='text', name="username" value="#{user['username']}" disabled)
+      div.description usernameは変更できません
+    div.field-group
+      label(for='firstname') firstname
+        span.aui-icon.icon-required
+      input#firstname.text.medium-field(type='text', name="firstname" value="#{user['firstname']}")
+      div.description firstnameだけど名字を入力してください
+    div.field-group
+      label(for='lastname') lastname
+        span.aui-icon.icon-required
+      input#lastname.text.medium-field(type='text', name="lastname" value="#{user['lastname']}")
+      div.description lastnameだけど名前を入力してください
+    div.field-group
+      label(for='email') email
+        span.aui-icon.icon-required
+      input#email.text.medium-field(type='email', name="email" value="#{user['email']}")
+    div.buttons-container
+      div.buttons
+        input#comment-save-button.button.submit(type='submit', value='更新')
+

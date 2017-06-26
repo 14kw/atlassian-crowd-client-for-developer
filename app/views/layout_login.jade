@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= 'Crowd Client'
+    link(rel='stylesheet', href='/static/aui/css/aui.min.css')
+    link(rel='stylesheet', href='/static/aui/css/aui-experimental.min.css')
+    link(rel='stylesheet', href='/static/stylesheets/style.css')
+    script(type='text/javascript', src='/static/aui/js/aui.min.js')
+    script(type='text/javascript', src='/static/aui/js/aui-experimental.min.js')
+    script(type='text/javascript', src='/static/aui/js/aui-soy.min.js')
+  body.aui-page-focused.aui-page-focused-medium
+    div#page
+      header#header(role='banner')
+        nav.aui-header.aui-dropdown2-trigger-group(role="navigation")
+          div.aui-header-inner
+             div.aui-header-primary
+              h1#logo.aui-header-logo.aui-header-logo-crowd
+                a(href="/")
+                  span.aui-header-logo-device Crowd Client
+
+      section#content(role="main")
+        div.aui-page-panel
+          div.aui-page-panel-inner
+            section.aui-page-panel-content
+              block content
+      footer#footer(role="contentinfo")

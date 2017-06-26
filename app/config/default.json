@@ -1,0 +1,38 @@
+{
+  "log4js": [
+    {
+      "type": "dateFile",
+      "filename": "logs/app.log",
+      "pattern": "-yyyy-MM-dd",
+      "backups": 365,
+      "category": "app"
+    },
+    {
+      "type": "dateFile",
+      "filename": "logs/access.log",
+      "pattern": "-yyyy-MM-dd",
+      "backups": 365,
+      "category": "access"
+    },
+    {
+      "type": "dateFile",
+      "filename": "logs/error.log",
+      "pattern": "-yyyy-MM-dd",
+      "backups": 365,
+      "category": "error"
+    }
+  ],
+  "license": {
+    "jira": 100,
+    "confluence": 100,
+    "stash": 100,
+    "crowd": 250
+  },
+  "crowdDirectory": {
+    "baseUrl": "http://crowd:8095/crowd/",
+    "application": {
+      "name": "crowd-internal",
+      "password": "crowdpass"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+  h1= '権限の追加・削除'
+  if(error)
+    div.aui-message.aui-message-error
+      p.title
+        strong Error!
+      p #{error}
+  if(jira_rest || conf_rest || stash_rest)
+    div.aui-message.aui-message-info
+      p.title
+        strong information
+      p JIRA　　　：残り #{jira_rest} ライセンス
+      p Confluence：残り #{conf_rest} ライセンス
+      p Stash　　 ：残り #{stash_rest} ライセンス
+
+  h2= '権限の追加'
+  form.aui(method='post', action='/perms/add')
+    fieldset.group
+      if jira_rest > 0
+        div.checkbox
+          input#jiraadd.checkbox(type='checkbox', name='jiraadd' value='false')
+          label(for='jiraadd') jira
+      if conf_rest > 0
+        div.checkbox
+          input#confluenceadd.checkbox(type='checkbox', name='confluenceadd' value='false')
+          label(for='confluenceadd') confluence
+      if stash_rest > 0
+        div.checkbox
+          input#stashadd.checkbox(type='checkbox', name='stashadd' value='false')
+          label(for='stashadd') stash
+    div.field-group
+        label(for='addlist') userlist
+        input#addlist.text(type='text', name='addlist' value='')
+        div.description カンマ区切りで複数ユーザーに権限を追加できます
+    div.buttons-container
+      div.buttons
+        input.button.submit(type='submit', value='追加')
+
+  h2= '権限の削除'
+  form.aui(method='post', action='/perms/del')
+    fieldset.group
+      div.checkbox
+        input#jiradel.checkbox(type='checkbox', name='jiradel' value='false')
+        label(for='jiradel') jira
+      div.checkbox
+        input#confluencedel.checkbox(type='checkbox', name='confluencedel' value='false')
+        label(for='confluencedel') confluence
+      div.checkbox
+        input#stashdel.checkbox(type='checkbox', name='stashdel' value='false')
+        label(for='stashdel') stash
+    div.field-group
+        label(for='dellist') userlist
+        input#dellist.text(type='text', name='dellist' value='')
+        div.description カンマ区切りで複数ユーザーの権限を削除できます
+    div.buttons-container
+      div.buttons
+        input.button.submit(type='submit', value='削除')

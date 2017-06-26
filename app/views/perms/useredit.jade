@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1= 'tool perm edit'
+  if(error)
+    p #{error}
+
+  form(method='post', action='/perms/useradd')
+    input(type='checkbox', name='jira' value='false' checked='false')
+    input(type='checkbox', name='confluence' value='false' checked='false')
+    input(type='checkbox', name='stash' value='false' checked='false')
+    input(type='text', name='userlist' value='')
+    input(type='submit', value='add')
+
+  form(method='post', action='/perms/userdel')
+    input(type='checkbox', name='jira' value='false' checked='false')
+    input(type='checkbox', name='confluence' value='false' checked='false')
+    input(type='checkbox', name='stash' value='false' checked='false')
+    input(type='text', name='userlist' value='')
+    input(type='submit', value='del')

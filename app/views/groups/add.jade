@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1= 'グループの新規追加'
+  if(error)
+    p #{error}
+
+  form.aui(method='post', action='/groups/create')
+    div.field-group
+      label(for='groupname') groupname
+        span.aui-icon.icon-required
+      span team-
+      input#groupname.text.medium-field(type='text', name="groupname" value="")
+    div.field-group
+      label(for='description') description
+      input#description.text.long-field(type='text', name="description" value="")
+    div.buttons-container
+      div.buttons
+        input#comment-save-button.button.submit(type='submit', value='追加')

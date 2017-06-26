@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+  h1= 'ユーザー情報'
+  if error
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p #{error}
+
+  if limit
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p license limit. please disable another user.
+
+  - var active
+
+  h2= user["username"]
+  if editperm
+    div.aui-group
+      a(href='../edit/#{user["username"]}')
+        button.aui-button ユーザー情報の変更
+  table.aui
+    tbody
+      each val, key in user
+        tr
+          if key == 'active'
+            - active = val
+          th #{key}
+          td #{val}
+
+  if editperm
+    if active
+      form.aui(method='post', action='/active/#{user["username"]}')
+        input(type='hidden', name="active" value="false")
+        div.buttons-container
+          div.buttons
+            input#comment-save-button.button.submit(type='submit', value='無効化')
+    else if enable
+      form.aui(method='post', action='/active/#{user["username"]}')
+        input(type='hidden', name="active" value="true")
+        div.buttons-container
+          div.buttons
+            input#comment-save-button.button.submit(type='submit', value='有効化')
+    else
+      div.aui-message.aui-message-error
+        p.title
+          strong Error!
+        p Crowdライセンスが上限に達しています。ユーザーを有効化することはできません。
+
+  h2= '所属グループ'
+  table.aui
+    tbody
+      each val in grouplist
+        tr
+          td 
+            a(href='../../groups/view/#{val}') #{val}

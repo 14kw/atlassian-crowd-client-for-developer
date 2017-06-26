@@ -1,0 +1,33 @@
+body {  
+    font-family: Verdana, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;  
+    font-size: 13px;  
+}  
+.aui-page-panel-content>*:first-child {
+    margin-top: 0 !important;
+}
+.aui-page-panel-content h1, .aui-page-panel-content h2, .aui-page-panel-content h3, .aui-page-panel-content h4, .aui-page-panel-content h5, .aui-page-panel-content h6 {
+    margin-top: 1em;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.aui-page-panel-content h1 {
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+.aui-page-panel-content h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+.aui-page-panel-content pre code, .CodeMirror, .content-view .CodeMirror pre {
+    font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace!important;
+}
+.aui-page-panel-content>ul>li>ul, .aui-page-panel-content>ul>li>ul>li>ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+

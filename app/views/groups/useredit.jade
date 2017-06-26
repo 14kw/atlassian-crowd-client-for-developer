@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1= 'グループ内メンバーの編集'
+  if(error)
+    div.aui-message.aui-message-error
+      p.title
+       strong Error!
+      p #{error}
+
+  h2= groupname
+
+  h3= 'メンバーの追加'
+  form.aui(method='post', action='/groups/useradd/#{groupname}')
+    div.field-group
+      label(for='addlist') add user list
+      input#addlist.text.medium-field(type='text', name="addlist" value="")
+      div.description カンマ区切りで複数ユーザーをグループに追加できます
+    div.buttons-container
+      div.buttons
+        input#comment-save-button.button.submit(type='submit', value='追加')
+
+  h3= 'メンバーの削除'
+  form.aui(method='post', action='/groups/userdel/#{groupname}')
+    div.field-group
+      label(for='dellist') delete user list
+      input#dellist.text.medium-field(type='text', name="dellist" value="")
+      div.description カンマ区切りで複数ユーザーをグループから削除できます
+    div.buttons-container
+      div.buttons
+        input#comment-save-button.button.submit(type='submit', value='削除')
+
+  h3= 'グループ内メンバー一覧'
+  ul
+    each val in userlist
+      li
+        a(href='../../users/view/#{val}') #{val}
+

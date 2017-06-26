@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= 'Crowd Client'
+    link(rel='stylesheet', href='/static/aui/css/aui.min.css')
+    link(rel='stylesheet', href='/static/aui/css/aui-experimental.min.css')
+    link(rel='stylesheet', href='/static/stylesheets/style.css')
+    script(type='text/javascript', src='/static/aui/js/aui.min.js')
+    script(type='text/javascript', src='/static/aui/js/aui-experimental.min.js')
+    script(type='text/javascript', src='/static/aui/js/aui-soy.min.js')
+  body
+    div#page
+      header#header(role='banner')
+        nav.aui-header.aui-dropdown2-trigger-group(role="navigation")
+          div.aui-header-inner
+            div.aui-header-primary
+              h1#logo.aui-header-logo.aui-header-logo-crowd
+                a(href="/")
+                  span.aui-header-logo-device Crowd Client
+
+      section#content(role="main")
+        div.aui-page-panel
+          div.aui-page-panel-inner
+            div.aui-page-panel-nav
+              nav#admin-menu.aui-navgroup.aui-navgroup-vertical
+                div.aui-navgroup-iner
+                  ul.aui-nav
+                    li
+                      a(href='/home') Home
+                    li
+                      a(href='/users/add') ユーザーの新規追加
+                    li
+                      a(href='/users/search') ユーザーの検索
+                    li
+                      a(href='/groups/add') グループの新規追加
+                    li
+                      a(href='/groups/search') グループの検索
+                    li
+                      a(href='/perms/view') 権限の確認
+                    li
+                      a(href='/perms/edit') 権限の追加・削除
+            section.aui-page-panel-content
+              block content
+      footer#footer(role="contentinfo")
